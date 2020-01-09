@@ -50,10 +50,16 @@ export default {
   text-align: center;
   max-width: 380px;
   margin: 0 auto;
-  padding: 0 0 60px;
+  padding: 16px 48px 60px;
+  width: 100%;
 }
 .title-slide {
   margin-top: 16px;
+  text-overflow: ellipsis;
+  max-height: 42px;
+  white-space: nowrap;
+  overflow-wrap: break-word;
+  overflow: hidden;
 }
 .business-slide {
   font-size: 20px;

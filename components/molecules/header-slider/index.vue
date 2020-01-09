@@ -26,6 +26,8 @@ export default {
   grid-column-gap: 36px;
   padding-left: 16px;
   padding-right: 16px;
+  max-width: 500px;
+  margin: 0 auto;
 }
 .link-wrapper {
   justify-self: flex-end;

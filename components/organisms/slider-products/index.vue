@@ -1,25 +1,23 @@
 <template>
-  <div id="slider" class="slider-container">
+  <div class="slider-container">
     <HeaderSlider />
-    <!-- <div v-swipe:mySwiper="swiperOption"> -->
+    <div v-swiper:mySwiper="swiperOption" class="swiper-container">
       <div class="swiper-wrapper">
-        <template v-for="item in products" class="swiper-slide">
+        <div v-for="(item, key) in Products" :key="key" class="swiper-slide">
           <ProductSlider
-            :key="item.id"
             :image="item.image"
             :title="item.title"
             :percent="item.percentage"
             :price="item.price"
             :business="filterBusiness(item.storeid)"
           />
-        </template>
+        </div>
       </div>
-    <!-- </div> -->
+    </div>
   </div>
 </template>
 
 <script>
-// import mySwiper from 'vue-awesome-swiper'
 import HeaderSlider from '~/components/molecules/header-slider'
 import ProductSlider from '~/components/molecules/slide'
 import Business from '~/json/lojas.json'
@@ -30,39 +28,23 @@ export default {
     HeaderSlider,
     ProductSlider
   },
-  mounted () {
-    console.log(this.mySwiper)
-  },
   data () {
     return {
-      products: Products,
-      business: Business,
-      mySwiper,
+      Business,
+      Products,
       swiperOption: {
-        loop: true,
+        loop: false,
         slidesPerView: 'auto',
         centeredSlides: true,
-        spaceBetween: 30,
-        pagination: {
-          el: '.swiper-pagination',
-          dynamicBullets: true
-        },
-        on: {
-          slideChange () {
-            console.log('onSlideChangeEnd', this)
-          },
-          tap () {
-            console.log('onTap', this)
-          }
-        }
+        spaceBetween: 30
       }
     }
   },
   methods: {
     filterBusiness (idstore) {
-      for (let i = 0; i < this.business.length; i++) {
-        if (this.business[i].id === idstore) {
-          return this.business[i].name
+      for (let i = 0; i < this.Business.length; i++) {
+        if (this.Business[i].id === idstore) {
+          return this.Business[i].name
         }
       }
     }
@@ -73,7 +55,34 @@ export default {
 <style>
 .slider-container {
   align-self: center;
-  max-width: 470px;
+  max-width: calc(100vw - 24px);
   justify-content: center;
+}
+.my-swiper {
+  height: 300px;
+  width: 100%;
+}
+.swiper-container {
+  margin-top: 24px;
+}
+.swiper-wrapper {
+  right: 40px;
+}
+@media screen and (max-width: 500px) {
+  .swiper-wrapper {
+    right: 0;
+  }
+}
+.swiper-slide {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: auto;
+  max-width: calc(100% - 32px);
+}
+.swiper-pagination-bullet {
+  background-color: red;
 }
 </style>
