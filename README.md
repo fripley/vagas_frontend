@@ -1,3 +1,20 @@
+#### Build Setup
+
+``` bash
+# install dependencies
+$ npm run install
+
+# serve with hot reload at localhost:3000
+$ npm run dev
+
+# build for production and launch server
+$ npm run build
+$ npm run start
+
+# generate static project
+$ npm run generate
+```
+
 ## Descrição da vaga
 
 Atuar em correções, melhorias nos projetos já existentes e novos projetos do grupo Vigia de Preço, com atenção especial na qualidade do código. Buscamos um profissional com brilho nos olhos e que esteja disposto aprender e compartilhar conhecimento e experiência conosco, participando desde o processo de arquitetura, análise, evolução até a produção das nossas soluções. 
