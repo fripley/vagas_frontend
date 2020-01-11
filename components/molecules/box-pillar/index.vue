@@ -43,6 +43,11 @@ export default {
   margin: 48px auto;
   max-width: 420px;
 }
+@media screen and (min-width: 1024px) {
+  .box-wrapper {
+    margin: 0;
+  }
+}
 .box-wrapper:first-child {
   margin-top: 0;
 }

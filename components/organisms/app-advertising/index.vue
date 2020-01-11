@@ -13,3 +13,13 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+@media screen and (min-width: 1024px) {
+  #app-advertising {
+    .text-box {
+      max-width: 100%;
+    }
+  }
+}
+</style>

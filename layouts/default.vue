@@ -40,10 +40,4 @@ html {
 .mr-16 { margin-right: 16px }
 .mr-32 { margin-right: 32px }
 
-.desktop-only { display: block !important }
-.mobile-only { display: none !important }
-@media screen and (max-width: 1024px) {
-  .desktop-only { display: none !important }
-  .mobile-only { display: block !important }
-}
 </style>

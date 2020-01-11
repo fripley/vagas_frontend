@@ -1,5 +1,5 @@
 <template>
-  <section id="pillars" class="pillars-wrapper">
+  <section class="pillars-wrapper">
     <template v-for="(item, index) in pillars">
       <BoxPillar
         :title="item.title"
@@ -43,5 +43,23 @@ export default {
 </script>
 
 <style>
-
+@media screen and (min-width: 1024px) {
+  .pillars-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 30%);
+    align-items: center;
+    grid-column-gap: 24px;
+    margin: 0 auto;
+    max-width: 1024px;
+  }
+  .pillars-wrapper .title-container {
+    font-size: 20px;
+  }
+  .pillars-wrapper .paragraph-container {
+    font-size: 16px;
+  }
+  .pillars-wrapper .box-wrapper {
+    padding: 64px 24px;
+  }
+}
 </style>

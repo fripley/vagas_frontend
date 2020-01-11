@@ -1,5 +1,5 @@
 <template>
-  <p id="paragraph" class="paragraph-container">
+  <p class="paragraph-container">
     {{ label }}
   </p>
 </template>

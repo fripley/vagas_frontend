@@ -1,7 +1,7 @@
 <template>
-  <div id="box-title-text">
-    <Title :label="titleLabel" class="mb-16" />
-    <Paragraph :label="textLabel" class="mb-16" />
+  <div class="text-box">
+    <Title :label="titleLabel" class="title-box mb-16" />
+    <Paragraph :label="textLabel" class="paragraph-box mb-16" />
   </div>
 </template>
 
@@ -30,3 +30,22 @@ export default {
   }
 }
 </script>
+
+<style>
+.text-box {
+  margin: 0;
+  max-width: 420px;
+  text-align: center;
+}
+.text-box:nth-child(even) {
+  margin: 32px auto;
+}
+@media screen and (min-width: 1024px) {
+  .paragraph-box,
+  .title-box {
+    text-align: left;
+    text-align: left;
+  }
+  /* .paragraph-box {} */
+}
+</style>

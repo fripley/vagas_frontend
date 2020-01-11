@@ -116,6 +116,12 @@ export default {
   flex-direction: row;
   align-items: center;
 }
+@media screen and (min-width: 1024px) {
+  .tag {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}
 .tag:before {
   content: '';
   display: inline-block;
@@ -131,7 +137,7 @@ export default {
 .tag.positive {
   background-color: #13bc4a;
 }
-.tag.positive:before,
+.tag.negative:before,
 .tag.neutral:before {
   transform: rotate(180deg);
 }

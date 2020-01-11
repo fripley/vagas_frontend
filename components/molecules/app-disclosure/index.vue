@@ -7,17 +7,10 @@
         title-label="Título da página"
         text-label="Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic molestias blanditiis magni praesentium repellat."
       />
-      <div v-show="isPhone" class="app-controller">
-        <a href="javascript:;" title="google play">
-          <img src="~/assets/google-play.png" alt="google play">
-        </a>
-        <a href="javascript:;" title="app store">
-          <img src="~/assets/download-on-the-app-store-badge-ptbr-rgb-blk-092917.png" alt="app store">
-        </a>
-      </div>
+      <AppLinkDownload v-show="isPhone" />
     </article>
     <div :class="[isPhone ? 'image-block' : 'video-block']">
-      <img v-if="isPhone" src="~/assets/group-9.png" alt="phone">
+      <img v-if="isPhone" :src="image" alt="phone">
       <!-- <iframe v-else src="https://www.youtube.com/embed/sCxQFlkgzrw" height="300" /> -->
     </div>
   </div>
@@ -25,10 +18,15 @@
 
 <script>
 import BoxText from '~/components/molecules/box-title-text'
+import AppLinkDownload from '~/components/molecules/app-link-download'
+
+const phone1 = require('~/assets/group-9.png')
+const phone2 = require('~/assets/group-11.png')
 
 export default {
   components: {
-    BoxText
+    BoxText,
+    AppLinkDownload
   },
   props: {
     isPhone: {
@@ -38,6 +36,11 @@ export default {
     isReverse: {
       type: Boolean,
       default: false
+    }
+  },
+  data () {
+    return {
+      image: this.$props.isReverse ? phone2 : phone1
     }
   }
 }
@@ -52,21 +55,25 @@ export default {
   align-items: center;
   margin: 48px auto;
 }
+@media screen and (min-width: 1024px) {
+  .app-disclosure-container {
+    max-width: 100%;
+    flex-direction: row;
+    min-height: 500px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+  }
+  .app-disclosure-container.reverse .app-controller {
+    margin-top: 64px;
+  }
+  .app-disclosure-container.reverse .image-block{
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: flex-start;
+  }
+}
 .app-disclosure-container.reverse {
   flex-direction: column-reverse;
-}
-.app-controller {
-  display: flex;
-  justify-content: space-between;
-}
-@media screen and (max-width: 460px) {
-  .app-controller {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .app-controller > a:first-child {
-    margin-bottom: 16px;
-  }
 }
 .text-block > p {
   font-size: 18px;
@@ -77,6 +84,11 @@ export default {
 .image-block {
   margin-top: 32px;
   max-width: 420px;
+}
+@media screen and (min-width: 1024px) {
+  .image-block {
+    justify-self: flex-end;
+  }
 }
 .video-block {
   max-width: 500px;

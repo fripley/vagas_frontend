@@ -38,4 +38,9 @@ export default {
     grid-template-columns: calc(80% - 24px) 20%;
   }
 }
+@media screen and (min-width: 1024px) {
+  .header-slider-container {
+    max-width: 1024px;
+  }
+}
 </style>

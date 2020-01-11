@@ -5,7 +5,6 @@
         :titleLabel="item.title"
         :textLabel="item.text"
         :key="key"
-        class="text-box align-center"
       />
     </template>
   </section>
@@ -39,15 +38,26 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .resume-container {
   margin: 48px 0;
 }
-.text-box {
-  margin: 0 auto;
-  max-width: 420px;
+@media screen and (min-width: 1024px) {
+  .resume-container {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-around;
+    .text-box {
+      .title-box {
+        font-size: 20px;
+      }
+    }
+  }
 }
-.text-box:nth-child(even) {
-  margin: 32px auto;
+.resume-container .text-box {
+  margin: 0 auto;
 }
 </style>

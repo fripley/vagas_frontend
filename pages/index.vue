@@ -9,11 +9,15 @@
     </div>
     <div class="wrapper">
       <VideoDisclosure class="mb-136" />
-      <Spotlight :business="business" />
-      <Resume />
-      <AppAdd />
+      <Title label="Marcas do app em destaque" class="mb-32 align-center" />
+      <div class="inner-wrapper">
+        <Spotlight :business="businessPlaceholder" />
+        <Resume />
+      </div>
+      <AppAdd is-reverse />
     </div>
-    <Slider />
+    <Slider class="mb-136" />
+    <Footer />
   </div>
 </template>
 
@@ -26,11 +30,15 @@ import VideoDisclosure from '~/components/organisms/video-disclosure'
 import Resume from '~/components/organisms/resume'
 import AppAdd from '~/components/organisms/app-advertising'
 import Slider from '~/components/organisms/slider-products'
+import Footer from '~/components/organisms/footer'
+import Title from '~/components/atoms/title'
+
 import Business from '~/json/lojas.json'
 import Products from '~/json/produtos.json'
 
 export default {
   components: {
+    Title,
     Header,
     Hero,
     Pillars,
@@ -38,12 +46,31 @@ export default {
     Spotlight,
     Resume,
     Slider,
+    Footer,
     AppAdd
   },
   data () {
     return {
       business: [],
-      products: []
+      products: [],
+      businessPlaceholder: [
+        { name: '', bgColor: '#1da1f2' },
+        { name: '', bgColor: '#fff' },
+        { name: '', bgColor: '#fff' },
+        { name: '', bgColor: '#fff' },
+        { name: '', bgColor: '#fff' },
+        { name: '', bgColor: '#ff4600' },
+        { name: '', bgColor: '#fff' },
+        { name: '', bgColor: '#fff' },
+        { name: '', bgColor: '#fff' },
+        { name: '', bgColor: '#fff' },
+        { name: '', bgColor: '#9746d5' },
+        { name: '', bgColor: '#fff' },
+        { name: '', bgColor: '#fff' },
+        { name: '', bgColor: '#fff' },
+        { name: '', bgColor: '#fff' },
+        { name: '', bgColor: '#fedb00' }
+      ]
     }
   },
   created () {
@@ -75,11 +102,26 @@ export default {
   width: 100%;
   padding: 0 32px;
 }
+@media screen and (min-width: 769px){
+  .wrapper {
+    max-width: 1024px;
+    align-self: center;
+  }
+}
 .container .wrapper:first-child {
   margin-bottom: 88px
 }
 .pillar-section {
   background-color: #f7ffdc;
   padding: 48px 16px;
+  max-width: 100%;
+}
+@media screen and (min-width: 1024px) {
+  .inner-wrapper {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    align-items: center;
+    grid-column-gap: 16px;
+  }
 }
 </style>

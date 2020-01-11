@@ -1,6 +1,6 @@
 <template>
   <Box :style="'background-color: ' + bgColor">
-    <img src="~/assets/logo-placeholder-2-x.png" alt="logo">
+    <img src="~/assets/logo-placeholder-2-x.png" alt="logo" class="box-logo-image">
     <Paragraph :label="label" theme="secondary" class="align-center mt-16" />
   </Box>
 </template>
@@ -26,3 +26,10 @@ export default {
   }
 }
 </script>
+
+<style>
+.box-logo-image {
+  /* width: 100%; */
+  display: block;
+}
+</style>
