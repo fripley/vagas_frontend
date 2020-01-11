@@ -163,6 +163,7 @@ export default {
         justify-content: center;
       }
       .extension-spotlight {
+        display: flex;
         > a {
           text-decoration: none;
           color: #000;
@@ -203,6 +204,14 @@ export default {
         }
       }
       .footer-nav {
+        li {
+          &.ttl {
+            font-size: 18px;
+          }
+          > a {
+            font-size: 14px;
+          }
+        }
         &.contact-nav {
           margin-left: 24px;
           grid-area: contact
@@ -214,11 +223,17 @@ export default {
           grid-area: spotlight
         }
       }
+      .medias-nav {
+        .ttl {
+          font-size: 18px;
+        }
+      }
       .about-nav {
-        grid-area: social
+        grid-area: social;
       }
       .auth-brands {
-        grid-area: brands
+        grid-area: brands;
+        font-size: 14px;
       }
       &.navigation {
         display: grid;

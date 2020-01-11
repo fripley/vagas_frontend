@@ -59,7 +59,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .slide-container {
   border: 2px solid #9d9d9d;
   border-radius: 8px;
@@ -68,6 +68,15 @@ export default {
   margin: 0 auto;
   padding: 16px 48px 60px;
   width: 100%;
+}
+@media screen and (min-width: 1024px) {
+  .slide-container {
+    cursor: pointer;
+    transition: box-shadow .3s;
+    &:hover {
+      box-shadow: -2px 2px 12px rgba(0, 0, 0, .3);
+    }
+  }
 }
 .title-slide {
   margin-top: 16px;

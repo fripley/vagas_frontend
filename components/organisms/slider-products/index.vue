@@ -80,6 +80,7 @@ export default {
     position: relative;
   }
   .swiper-container {
+    padding: 15px;
     .slide-container {
       max-width: 300px;
       padding: 16px 24px 24px;

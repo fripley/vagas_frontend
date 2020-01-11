@@ -11,7 +11,7 @@
     </article>
     <div :class="[isPhone ? 'image-block' : 'video-block']">
       <img v-if="isPhone" :src="image" alt="phone">
-      <!-- <iframe v-else src="https://www.youtube.com/embed/sCxQFlkgzrw" height="300" /> -->
+      <!-- <iframe v-else src="https://www.youtube.com/embed/sCxQFlkgzrw" /> -->
     </div>
   </div>
 </template>
@@ -53,7 +53,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 48px auto;
+  margin: 98px auto;
 }
 @media screen and (min-width: 1024px) {
   .app-disclosure-container {
@@ -61,6 +61,7 @@ export default {
     flex-direction: row;
     min-height: 500px;
     display: grid;
+    margin-top: 88px;
     grid-template-columns: 50% 50%;
   }
   .app-disclosure-container.reverse .app-controller {
@@ -100,4 +101,14 @@ export default {
 .video-block > iframe {
   min-width: 500px;
 }
+/* @media screen and (min-width: 1024px) {
+  .video-block > iframe {
+    min-width: 500px;
+    width: 100%;
+  }
+  .video-block {
+    max-width: 100%;
+    height: 100%;
+  }
+} */
 </style>

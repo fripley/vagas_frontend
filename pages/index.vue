@@ -1,7 +1,7 @@
 <template>
   <div class="container">
+    <Header />
     <div class="wrapper">
-      <Header />
       <Hero />
     </div>
     <div class="wrapper pillar-section">
