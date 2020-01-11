@@ -11,7 +11,7 @@
     </article>
     <div :class="[isPhone ? 'image-block' : 'video-block']">
       <img v-if="isPhone" :src="image" alt="phone">
-      <!-- <iframe v-else src="https://www.youtube.com/embed/sCxQFlkgzrw" /> -->
+      <iframe v-else src="https://www.youtube.com/embed/sCxQFlkgzrw" />
     </div>
   </div>
 </template>
@@ -91,15 +91,14 @@ export default {
     justify-self: flex-end;
   }
 }
-.video-block {
-  max-width: 500px;
+.video-block,
+.video-block  iframe{
+  width: 100%;
+  height: 100%;
 }
 .image-block > img {
   height: auto;
   width: 100%;
-}
-.video-block > iframe {
-  min-width: 500px;
 }
 /* @media screen and (min-width: 1024px) {
   .video-block > iframe {

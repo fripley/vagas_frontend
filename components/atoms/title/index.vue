@@ -26,8 +26,21 @@ export default {
 .primary {
   font-size: 32px;
 }
-/* .secondary {} */
+.secondary {
+  font-size: 24px;
+}
 .tertiary {
   font-size: 18px;
+}
+@media screen and (max-width: 1024px) {
+  .primary {
+    font-size: 28px;
+  }
+  .secondary {
+    font-size: 18px;
+  }
+  .tertiary {
+    font-size: 16px;
+  }
 }
 </style>

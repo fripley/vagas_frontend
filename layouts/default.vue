@@ -20,6 +20,9 @@ html {
   box-sizing: border-box;
   margin: 0;
 }
+#root {
+  overflow: hidden;
+}
 .align-center { text-align: center;}
 .m-8 { margin: 8px }
 .m-16 { margin: 16px }

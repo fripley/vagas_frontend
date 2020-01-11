@@ -1,5 +1,6 @@
 <template>
   <header id="header" :class="['header-container', scrollY > 0 && 'scrollable']">
+    <div :class="['overlay', menuSwitcher && 'active']"></div>
     <div class="header-wrapper">
       <a @click="scrollTop" href="javascript:;" title="logo" class="icon-logo">
         <img src="~/assets/group-12.png" alt="logo">
@@ -10,11 +11,11 @@
             <img src="~/assets/user.png" alt="User">
           </a>
         </li>
-        <ul :class="['nav-account', menuSwitcher ? 'active' : '']">
+        <ul :class="['nav-account', menuSwitcher && 'active']">
           <li>
             <a href="javascript:;" title="Entrar">Entrar</a>
           </li>
-          <li>|</li>
+          <li @click="closeNav">|</li>
           <li>
             <a href="javascript:;" title="Criar conta">Criar conta</a>
           </li>
@@ -47,6 +48,11 @@ export default {
     },
     scrollTop () {
       window.scrollTo({ top: 0, behavior: 'smooth' })
+    },
+    closeNav () {
+      if (this.$device.isMobile) {
+        this.menuToggle()
+      }
     }
   }
 }
@@ -60,8 +66,12 @@ export default {
   background-color: #fff;
   margin: 0 auto;
   padding: 24px 0;
-  z-index: 6;
+  z-index: 4;
   transition: all .3s;
+  .overlay {
+    opacity: 0;
+    z-index: -1;
+  }
   &.scrollable {
     box-shadow: 0 2px 8px rgba($color: #000000, $alpha: .3);
     padding: 18px 0;
@@ -94,6 +104,55 @@ export default {
     .header-wrapper {
       padding-left: 16px;
       padding-right: 16px;
+      .user-controller {
+        .nav-account {
+          position: fixed;
+          right: -800px;
+          height: 100%;
+          width: 70%;
+          background-color: #fff;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: flex-start;
+          > li {
+            font-size: 24px;
+            &:first-child {
+              margin: 75px 0 24px;
+            }
+            &:nth-child(2) {
+              text-indent: 99999px;
+              width: 32px;
+              height: 32px;
+              background: url(~assets/close.png) center center no-repeat;
+              background-size: contain;
+              position: absolute;
+              top: 8px;
+              left: 8px;
+            }
+          }
+          &.active {
+            z-index: 6;
+            top: 0;
+            right: 0;
+          }
+        }
+      }
+    }
+    .overlay {
+      background-color: rgba($color: #000000, $alpha: .75);
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      opacity: 0;
+      z-index: -1;
+      transition: opacity .3s;
+      &.active {
+        z-index: 5;
+        opacity: 1;
+      }
     }
   }
 }

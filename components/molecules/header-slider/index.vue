@@ -35,7 +35,7 @@ export default {
 @media screen and (max-width: 460px) {
   .header-slider-container {
     grid-column-gap: 8px;
-    grid-template-columns: calc(80% - 24px) 20%;
+    grid-template-columns: calc(80% - 24px) 25%;
   }
 }
 @media screen and (min-width: 1024px) {
